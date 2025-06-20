@@ -1,0 +1,108 @@
+# Standard validation rules for scene composition and elements
+
+# Required fields in the scene data
+required_fields:
+  - scene_id
+  - elements
+  - composition
+
+# Boundaries for element positions
+bounds:
+  min_x: 0
+  max_x: 1920
+  min_y: 0
+  max_y: 1080
+
+# Required fields for elements
+element_required_fields:
+  - id
+  - type
+  - position
+
+# Validation settings
+validate_color_palette: true
+min_colors: 3
+focal_point_threshold: 50
+
+# Element type-specific rules
+element_types:
+  character:
+    character_attributes:
+      type: attribute_required
+      attribute: attributes
+      message: "Character elements must have attributes defined"
+    
+    character_position:
+      type: attribute_required
+      attribute: position
+      message: "Character elements must have position defined"
+    
+    character_lighting:
+      type: attribute_required
+      attribute: attributes.lighting
+      message: "Character elements must have lighting defined"
+    
+    valid_lighting_values:
+      type: attribute_value
+      attribute: attributes.lighting
+      allowed_values:
+        - front
+        - back
+        - side
+        - top
+        - ambient
+      message: "Character lighting must be a valid value"
+  
+  prop:
+    prop_position:
+      type: attribute_required
+      attribute: position
+      message: "Prop elements must have position defined"
+    
+    prop_dimensions:
+      type: attribute_required
+      attribute: dimensions
+      message: "Prop elements must have dimensions defined"
+  
+  background:
+    background_color:
+      type: attribute_required
+      attribute: attributes.color_scheme
+      message: "Background elements must have a color scheme defined"
+    
+    valid_background_schemes:
+      type: attribute_value
+      attribute: attributes.color_scheme
+      allowed_values:
+        - warm
+        - cool
+        - neutral
+        - vivid
+        - muted
+        - monochrome
+      message: "Background color scheme must be a valid value"
+
+# Composition rules
+composition_rules:
+  rule_of_thirds:
+    type: boolean
+    default: true
+    message: "Rule of thirds should be enabled for balanced composition"
+  
+  color_palette:
+    type: list
+    min_length: 3
+    max_length: 7
+    message: "Color palette should have 3-7 colors for optimal balance"
+  
+  focal_point:
+    type: object
+    required: true
+    message: "Focal point should be defined for clear visual hierarchy"
+
+# Advanced validation settings
+advanced_validation:
+  check_color_harmony: true
+  check_spatial_balance: true
+  check_visual_flow: true
+  check_element_contrast: true
