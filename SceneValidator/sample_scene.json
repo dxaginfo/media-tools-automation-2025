@@ -1,0 +1,117 @@
+{
+  "scene_id": "sample_scene_001",
+  "elements": [
+    {
+      "id": "character_protagonist",
+      "type": "character",
+      "position": {
+        "x": 640,
+        "y": 360
+      },
+      "dimensions": {
+        "width": 120,
+        "height": 280
+      },
+      "attributes": {
+        "color_scheme": "warm",
+        "lighting": "front"
+      }
+    },
+    {
+      "id": "character_supporting",
+      "type": "character",
+      "position": {
+        "x": 820,
+        "y": 380
+      },
+      "dimensions": {
+        "width": 100,
+        "height": 260
+      },
+      "attributes": {
+        "color_scheme": "cool",
+        "lighting": "side"
+      }
+    },
+    {
+      "id": "prop_table",
+      "type": "prop",
+      "position": {
+        "x": 720,
+        "y": 480
+      },
+      "dimensions": {
+        "width": 240,
+        "height": 80
+      },
+      "attributes": {
+        "material": "wood",
+        "color": "#8B4513"
+      }
+    },
+    {
+      "id": "background_wall",
+      "type": "background",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "attributes": {
+        "color_scheme": "neutral",
+        "texture": "smooth"
+      }
+    }
+  ],
+  "composition": {
+    "rule_of_thirds": true,
+    "focal_point": {
+      "x": 640,
+      "y": 360
+    },
+    "color_palette": [
+      "#8B4513",
+      "#F5DEB3",
+      "#D2B48C",
+      "#4682B4",
+      "#87CEEB"
+    ]
+  },
+  "lighting": {
+    "key_light": {
+      "direction": "top-left",
+      "intensity": 0.8,
+      "color": "#FFFFFF"
+    },
+    "fill_light": {
+      "direction": "right",
+      "intensity": 0.4,
+      "color": "#F0F8FF"
+    },
+    "ambient_light": {
+      "intensity": 0.2,
+      "color": "#D3D3D3"
+    }
+  },
+  "camera": {
+    "position": {
+      "x": 960,
+      "y": 540,
+      "z": 1000
+    },
+    "look_at": {
+      "x": 640,
+      "y": 360,
+      "z": 0
+    },
+    "field_of_view": 60,
+    "depth_of_field": {
+      "enabled": true,
+      "focus_distance": 800,
+      "aperture": 5.6
+    }
+  }
+}
